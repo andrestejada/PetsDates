@@ -18,11 +18,7 @@ pipeline {
           sh 'npm test' 
       }
     }
-    stage('Test:Coverage'){
-      steps {
-          sh 'npm run test:coverage' 
-      }
-    }
+    
     stage('Static Code Analysis') {
       steps{
         echo '------------>Análisis de código estático<------------'
