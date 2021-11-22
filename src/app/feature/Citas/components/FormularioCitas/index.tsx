@@ -1,8 +1,8 @@
-import { FormControl, InputLabel, Select, TextField } from '@material-ui/core';
+import { Button, FormControl, InputLabel, Select, TextField } from '@material-ui/core';
 import { FormContainer } from './styles';
 import React from 'react';
-
-export const FormularioCitas = () => {
+interface props{}
+export const FormularioCitas: React.FC<props> = () => {
     return (
         <FormContainer>
             <TextField
@@ -12,13 +12,13 @@ export const FormularioCitas = () => {
                 variant="outlined"
             />
             <TextField
-                required
+                
                 id="outlined-required"
                 label="Nombre de la mascota"
                 variant="outlined"
             />
             <FormControl variant="outlined" >
-                <InputLabel htmlFor="outlined-age-native-simple">Age</InputLabel>
+                <InputLabel htmlFor="outlined-age-native-simple">Tipo de servicio</InputLabel>
                 <Select
                     native
                     //value={state.age}
@@ -42,7 +42,29 @@ export const FormularioCitas = () => {
                 id="outlined-required"
                 label="Tarifa"
                 variant="outlined"
-            />       
+            />
+            <TextField
+                id="datetime-local"
+                label="Fecha y hora de la cita"
+                type="datetime-local"
+                defaultValue={''}                
+                InputLabelProps={{
+                shrink: true,
+                }}
+            />  
+            <TextField
+                id="outlined-multiline-static"
+                label="Observaciones"
+                multiline                          
+                variant="outlined"
+            />
+            <Button 
+                variant="contained" 
+                color="primary"
+                type='submit'
+            >
+                Guardar Citas
+            </Button>
         </FormContainer>
     );
 };

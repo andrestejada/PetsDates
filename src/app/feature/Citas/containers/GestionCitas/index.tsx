@@ -5,7 +5,7 @@ import React from 'react';
 export const GestionCitas = () => {
     return (
         <>
-        <h1>Gestion tu citas</h1>
+        <h1>Gestiona tus citas</h1>
         <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
                 <FormularioCitas/>

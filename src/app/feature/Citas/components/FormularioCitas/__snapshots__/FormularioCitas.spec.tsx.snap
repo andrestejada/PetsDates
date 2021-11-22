@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba unitarias formulario de citas Comprobar que el componente se renderize correctamente  1`] = `
+<styled.form>
+  <WithStyles(ForwardRef(TextField))
+    id="outlined-required"
+    label="Nombre del Propietario"
+    required={true}
+    variant="outlined"
+  />
+  <WithStyles(ForwardRef(TextField))
+    id="outlined-required"
+    label="Nombre de la mascota"
+    variant="outlined"
+  />
+  <WithStyles(ForwardRef(FormControl))
+    variant="outlined"
+  >
+    <WithStyles(ForwardRef(InputLabel))
+      htmlFor="outlined-age-native-simple"
+    >
+      Tipo de servicio
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(Select))
+      inputProps={
+        Object {
+          "id": "outlined-age-native-simple",
+          "name": "age",
+        }
+      }
+      label="Age"
+      native={true}
+    >
+      <option
+        aria-label="None"
+        value=""
+      />
+      <option
+        value={10000}
+      >
+        Basico
+      </option>
+      <option
+        value={20000}
+      >
+        Regular
+      </option>
+      <option
+        value={30000}
+      >
+        Premium
+      </option>
+    </WithStyles(ForwardRef(Select))>
+  </WithStyles(ForwardRef(FormControl))>
+  <WithStyles(ForwardRef(TextField))
+    InputProps={
+      Object {
+        "readOnly": true,
+      }
+    }
+    id="outlined-required"
+    label="Tarifa"
+    variant="outlined"
+  />
+  <WithStyles(ForwardRef(TextField))
+    InputLabelProps={
+      Object {
+        "shrink": true,
+      }
+    }
+    defaultValue=""
+    id="datetime-local"
+    label="Fecha y hora de la cita"
+    type="datetime-local"
+  />
+  <WithStyles(ForwardRef(TextField))
+    id="outlined-multiline-static"
+    label="Observaciones"
+    multiline={true}
+    variant="outlined"
+  />
+  <WithStyles(ForwardRef(Button))
+    color="primary"
+    type="submit"
+    variant="contained"
+  >
+    Guardar Citas
+  </WithStyles(ForwardRef(Button))>
+</styled.form>
+`;
