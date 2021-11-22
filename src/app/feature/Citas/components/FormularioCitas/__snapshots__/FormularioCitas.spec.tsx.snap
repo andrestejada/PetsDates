@@ -1,16 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Prueba unitarias formulario de citas Comprobar que el componente se renderize correctamente  1`] = `
-<styled.form>
+<styled.form
+  onSubmit={[Function]}
+>
   <WithStyles(ForwardRef(TextField))
     id="outlined-required"
     label="Nombre del Propietario"
-    required={true}
+    name="nombrePropietario"
+    onChange={[Function]}
+    type="text"
+    value=""
     variant="outlined"
   />
   <WithStyles(ForwardRef(TextField))
     id="outlined-required"
     label="Nombre de la mascota"
+    name="nombreMascota"
+    onChange={[Function]}
+    value=""
     variant="outlined"
   />
   <WithStyles(ForwardRef(FormControl))
@@ -22,31 +30,28 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
       Tipo de servicio
     </WithStyles(ForwardRef(InputLabel))>
     <WithStyles(ForwardRef(Select))
-      inputProps={
-        Object {
-          "id": "outlined-age-native-simple",
-          "name": "age",
-        }
-      }
       label="Age"
+      name="tipoServicio"
       native={true}
+      onChange={[Function]}
+      value=""
     >
       <option
         aria-label="None"
         value=""
       />
       <option
-        value={10000}
+        value="basico"
       >
         Basico
       </option>
       <option
-        value={20000}
+        value="regular"
       >
         Regular
       </option>
       <option
-        value={30000}
+        value="premium"
       >
         Premium
       </option>
@@ -60,6 +65,9 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
     }
     id="outlined-required"
     label="Tarifa"
+    name="tarfia"
+    onChange={[Function]}
+    value={0}
     variant="outlined"
   />
   <WithStyles(ForwardRef(TextField))
@@ -68,19 +76,25 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
         "shrink": true,
       }
     }
-    defaultValue=""
     id="datetime-local"
     label="Fecha y hora de la cita"
+    name="fechaHora"
+    onChange={[Function]}
     type="datetime-local"
+    value=""
   />
   <WithStyles(ForwardRef(TextField))
     id="outlined-multiline-static"
     label="Observaciones"
     multiline={true}
+    name="observaciones"
+    onChange={[Function]}
+    value=""
     variant="outlined"
   />
   <WithStyles(ForwardRef(Button))
     color="primary"
+    id="button"
     type="submit"
     variant="contained"
   >
