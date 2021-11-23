@@ -2,12 +2,14 @@ import { Button, FormControl, InputLabel, Select, TextField } from '@material-ui
 import React, { FormEvent, useEffect, useState } from 'react';
 import Alert from '@material-ui/lab/Alert';
 import { FormContainer } from './styles';
+import { SaveDate } from '../../../../core/redux/acciones/Dates/DatesActions';
 import { UseForm } from '../../../../shared/hooks/useForm';
 import { ValidateEmptyInputs } from '../../../../shared/utils/ValidarCamposVacios';
 import { calcRate } from '../../../../shared/utils/calcRate';
+import { useDispatch } from 'react-redux';
 
 
-interface FormCrearCitas{
+export interface FormCrearCitas{
     nombrePropietario:string;
     nombreMascota:string;
     tipoServicio:string;
@@ -16,13 +18,14 @@ interface FormCrearCitas{
     observaciones:string;
 }
 export const FormularioCitas = () => {
+    const dispatch = useDispatch();
     const initialValues:FormCrearCitas={
-        nombrePropietario:'',
-        nombreMascota:'',
-        tipoServicio:'',
-        tarifa:0,
-        fechaHora:'',
-        observaciones:'',
+        nombrePropietario:'Andres',
+        nombreMascota:'sol',
+        tipoServicio:'basico',
+        tarifa:10000,
+        fechaHora:'2021-12-01T16:00',
+        observaciones:'pelo corto',
     };
     const [error, setError] = useState<Boolean>(false);
     const [msg, setMsg] = useState<String>('');
@@ -44,11 +47,13 @@ export const FormularioCitas = () => {
             setMsg('Todos los campos son obligatorios');
             return;
         }
+        dispatch(SaveDate(formValues));
         setError(false);
         reset();
     };
     useEffect(() => {
         setValues({...formValues,tarifa:calcRate(tipoServicio)});
+        // eslint-disable-next-line
     }, [tipoServicio]);
     return (
         <FormContainer

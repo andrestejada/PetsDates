@@ -1,0 +1,13 @@
+{
+  "dates": [
+    {
+      "id": 1,
+      "nombrePropietario": "Luisa",
+      "nombreMascota": "Danna",
+      "tipoServicio": "basico",
+      "tarifa": 1000,
+      "fechaHora": "2021-12-01T16:00",
+      "observaciones": "lo mas corto que se pueda"
+    }
+  ]
+}
