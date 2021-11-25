@@ -21,9 +21,11 @@ const initialState:State={
         allDates:[]
     }
 };
-const store = mockStore(initialState);
-
+let store = mockStore(initialState);
 describe('testing action dates', () => {
+    beforeEach(()=>{
+        store = mockStore(initialState);
+    });
     const newDate={
         nombrePropietario:'Juanito',
         nombreMascota:'coco',

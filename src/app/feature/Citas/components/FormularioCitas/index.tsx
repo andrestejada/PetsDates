@@ -20,13 +20,21 @@ export interface FormCrearCitas{
 export const FormularioCitas = () => {
     const dispatch = useDispatch();
     const initialValues:FormCrearCitas={
-        nombrePropietario:'Andres',
-        nombreMascota:'sol',
-        tipoServicio:'basico',
-        tarifa:10000,
-        fechaHora:'2021-12-01T16:00',
-        observaciones:'pelo corto',
+        nombrePropietario:'',
+        nombreMascota:'',
+        tipoServicio:'',
+        tarifa:0,
+        fechaHora:'',
+        observaciones:'',
     };
+    // const initialValues:FormCrearCitas={
+    //     nombrePropietario:'Andres',
+    //     nombreMascota:'sol',
+    //     tipoServicio:'basico',
+    //     tarifa:10000,
+    //     fechaHora:'2021-12-01T16:00',
+    //     observaciones:'pelo corto',
+    // };
     const [error, setError] = useState<Boolean>(false);
     const [msg, setMsg] = useState<String>('');
     const [formValues,handleOnChange,reset,setValues] = UseForm<FormCrearCitas>(initialValues);
@@ -42,7 +50,7 @@ export const FormularioCitas = () => {
         e.preventDefault();
         //validate empty fields
         const isEmptyFields = ValidateEmptyInputs(formValues);
-        if(isEmptyFields){
+         if(isEmptyFields){
             setError(true);
             setMsg('Todos los campos son obligatorios');
             return;

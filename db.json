@@ -8,6 +8,42 @@
       "tarifa": 1000,
       "fechaHora": "2021-12-01T16:00",
       "observaciones": "lo mas corto que se pueda"
+    },
+    {
+      "nombrePropietario": "Juanito",
+      "nombreMascota": "coco",
+      "tipoServicio": "regular",
+      "tarifa": 20000,
+      "fechaHora": "2021-12-01T16:00",
+      "observaciones": "Pelo corto",
+      "id": 2
+    },
+    {
+      "nombrePropietario": "Juanito",
+      "nombreMascota": "coco",
+      "tipoServicio": "regular",
+      "tarifa": 20000,
+      "fechaHora": "2021-12-01T16:00",
+      "observaciones": "Pelo corto",
+      "id": 3
+    },
+    {
+      "nombrePropietario": "Juanito",
+      "nombreMascota": "coco",
+      "tipoServicio": "regular",
+      "tarifa": 20000,
+      "fechaHora": "2021-12-01T16:00",
+      "observaciones": "Pelo corto",
+      "id": 4
+    },
+    {
+      "nombrePropietario": "Juanito",
+      "nombreMascota": "coco",
+      "tipoServicio": "regular",
+      "tarifa": 20000,
+      "fechaHora": "2021-12-01T16:00",
+      "observaciones": "Pelo corto",
+      "id": 5
     }
   ]
 }
