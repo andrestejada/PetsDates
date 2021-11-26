@@ -1,4 +1,4 @@
-import { ADD_DATE, DatesDispatchTypes, GET_ALL_DATES } from '../../acciones/Dates/DatesTypes';
+import { ADD_DATE, DELETE_DATE, DatesDispatchTypes, GET_ALL_DATES } from '../../acciones/Dates/DatesTypes';
 import { Citas } from '../../../../feature/Citas/interfaces/index';
 
 export interface Dates{
@@ -20,6 +20,11 @@ export const dateReducer=(state:Dates=initialState,action:DatesDispatchTypes):Da
             return{
                 ...state,
                 allDates:action.payload
+            };
+        case DELETE_DATE:
+            return{
+                ...state,
+                allDates: state.allDates.filter( (cita)=> cita.id !== action.payload)
             };
         default:
             return state;

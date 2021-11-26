@@ -1,4 +1,4 @@
-import { ADD_DATE, DatesDispatchTypes, GET_ALL_DATES } from '../../acciones/Dates/DatesTypes';
+import { ADD_DATE,DELETE_DATE, DatesDispatchTypes, GET_ALL_DATES,  } from '../../acciones/Dates/DatesTypes';
 import {Dates, dateReducer,  } from './DateReducer';
 import { Citas} from '../../../../feature/Citas/interfaces/index';
 
@@ -6,7 +6,7 @@ describe('test dates reducer', () => {
     const initialState:Dates={
         allDates:[]
     };
-    const newDate={
+    const Date={
         id:12345,
         nombrePropietario:'Juanito',
         nombreMascota:'coco',
@@ -25,14 +25,14 @@ describe('test dates reducer', () => {
     it('debe de retornar el producto agregado', () => {
         const actionAddNewDate:DatesDispatchTypes = {
             type:ADD_DATE,
-            payload:newDate
+            payload:Date
         };
         const statePlusNewDate = dateReducer(initialState,actionAddNewDate);
-        expect(statePlusNewDate).toEqual({...initialState,allDates:[...initialState.allDates,newDate]});
+        expect(statePlusNewDate).toEqual({...initialState,allDates:[...initialState.allDates,Date]});
         expect(statePlusNewDate.allDates.length).toBe(1);
     });
     it('debe de obtener todas la citas', () => {
-        const dates:Citas[] =[newDate,newDate];
+        const dates:Citas[] =[Date,Date];
 
         const actionGetAllDates:DatesDispatchTypes ={
             type:GET_ALL_DATES,
@@ -41,5 +41,18 @@ describe('test dates reducer', () => {
         const stateWithAllDates= dateReducer(initialState,actionGetAllDates);
         expect(stateWithAllDates.allDates.length).toBe(2);
         expect(stateWithAllDates).toEqual({...initialState,allDates:dates});
+    });
+    it('should be return the state without the delete date', () => {
+        const initialState:Dates={
+            allDates:[Date]
+        };
+        const actionDeleteDate:DatesDispatchTypes={
+            type:DELETE_DATE,
+            payload:Date.id
+        };
+
+        const stateWithoutDate = dateReducer(initialState,actionDeleteDate);
+        expect(stateWithoutDate.allDates.length).toBe(0);
+        expect(stateWithoutDate).toEqual({...initialState,allDates:[]});
     });
 });

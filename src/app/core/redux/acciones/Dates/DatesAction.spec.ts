@@ -1,5 +1,5 @@
-import { ADD_DATE, DatesDispatchTypes, GET_ALL_DATES } from './DatesTypes';
-import {GetDates, SaveDate, addNewDate, getAllDates,} from './DatesActions';
+import { ADD_DATE,DELETE_DATE , DatesDispatchTypes, GET_ALL_DATES,} from './DatesTypes';
+import {GetDates, SaveDate, addNewDate,deleteDate,deleteDateByID, getAllDates,  } from './DatesActions';
 import thunk ,{ThunkDispatch} from 'redux-thunk';
 import { Citas } from '../../../../feature/Citas/interfaces/index';
 import createMockStore from 'redux-mock-store';
@@ -22,27 +22,29 @@ const initialState:State={
     }
 };
 let store = mockStore(initialState);
+const newDate={        
+    nombrePropietario:'Juanito',
+    nombreMascota:'coco',
+    tipoServicio:'regular',
+    tarifa:20000,
+    fechaHora:'2021-12-01T16:00',
+    observaciones:'Pelo corto',
+};
+
+const DateWithID={ 
+    id:123456,       
+    nombrePropietario:'Juanito',
+    nombreMascota:'coco',
+    tipoServicio:'regular',
+    tarifa:20000,
+    fechaHora:'2021-12-01T16:00',
+    observaciones:'Pelo corto',
+};
 describe('testing action dates', () => {
     beforeEach(()=>{
         store = mockStore(initialState);
     });
-    const newDate={        
-        nombrePropietario:'Juanito',
-        nombreMascota:'coco',
-        tipoServicio:'regular',
-        tarifa:20000,
-        fechaHora:'2021-12-01T16:00',
-        observaciones:'Pelo corto',
-    };
-    const DateWithID={ 
-        id:123456,       
-        nombrePropietario:'Juanito',
-        nombreMascota:'coco',
-        tipoServicio:'regular',
-        tarifa:20000,
-        fechaHora:'2021-12-01T16:00',
-        observaciones:'Pelo corto',
-    };
+
     it('testing the sync action addNewDate', () => {
         const action = addNewDate(DateWithID);
         expect(action).toEqual({
@@ -53,7 +55,7 @@ describe('testing action dates', () => {
 
     it('testing async action saveDate', async() => {
 
-       await store.dispatch( SaveDate(newDate));
+       await store.dispatch( SaveDate(DateWithID));
        const action = store.getActions();
        expect(action[0]).toEqual({
            type:ADD_DATE,
@@ -82,4 +84,24 @@ describe('testing action dates', () => {
             payload:expect.any(Array)
         });
      });
+     it('testing sync action deleteDate', () => {
+         const action = deleteDate(DateWithID.id);
+         
+         expect(action).toEqual({
+             type:DELETE_DATE,
+             payload:DateWithID.id
+         });
+     });
+     it('testing async action deleteDateByID', async() => {
+
+        await store.dispatch( deleteDateByID(DateWithID.id));
+        const action = store.getActions();
+        expect(action[0]).toEqual({
+            type:DELETE_DATE,
+            payload:DateWithID.id
+        });
+        expect(action[0].payload).toEqual(expect.any(Number));
+     });
+
+     
 });

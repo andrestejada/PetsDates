@@ -1,13 +1,31 @@
 {
   "dates": [
     {
-      "id": 1,
-      "nombrePropietario": "Luisa",
-      "nombreMascota": "Danna",
-      "tipoServicio": "basico",
-      "tarifa": 1000,
+      "nombrePropietario": "Andres",
+      "nombreMascota": "Sol",
+      "tipoServicio": "premium",
+      "tarifa": 30000,
+      "fechaHora": "2021-11-26T13:54",
+      "observaciones": "estupendo",
+      "id": 4
+    },
+    {
+      "nombrePropietario": "Juanito",
+      "nombreMascota": "coco",
+      "tipoServicio": "regular",
+      "tarifa": 20000,
       "fechaHora": "2021-12-01T16:00",
-      "observaciones": "lo mas corto que se pueda"
+      "observaciones": "Pelo corto",
+      "id": 5
+    },
+    {
+      "nombrePropietario": "Juanito",
+      "nombreMascota": "coco",
+      "tipoServicio": "regular",
+      "tarifa": 20000,
+      "fechaHora": "2021-12-01T16:00",
+      "observaciones": "Pelo corto",
+      "id": 6
     }
   ]
 }
