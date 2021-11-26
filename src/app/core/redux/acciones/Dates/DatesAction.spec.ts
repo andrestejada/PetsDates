@@ -1,7 +1,7 @@
-import { ADD_DATE, DatesDispatchTypes } from './DatesTypes';
-import { SaveDate, addNewDate } from './DatesActions';
+import { ADD_DATE, DatesDispatchTypes, GET_ALL_DATES } from './DatesTypes';
+import {GetDates, SaveDate, addNewDate, getAllDates,} from './DatesActions';
 import thunk ,{ThunkDispatch} from 'redux-thunk';
-import { FormCrearCitas } from '../../../../feature/Citas/components/FormularioCitas/index';
+import { Citas } from '../../../../feature/Citas/interfaces/index';
 import createMockStore from 'redux-mock-store';
 
 
@@ -13,7 +13,7 @@ const mockStore = createMockStore<State,DispatchExts>(middlewares);
 
 interface State{
     dates:{
-        allDates:FormCrearCitas[]
+        allDates:Citas[]
     }
 }
 const initialState:State={
@@ -26,7 +26,7 @@ describe('testing action dates', () => {
     beforeEach(()=>{
         store = mockStore(initialState);
     });
-    const newDate={
+    const newDate={        
         nombrePropietario:'Juanito',
         nombreMascota:'coco',
         tipoServicio:'regular',
@@ -34,15 +34,24 @@ describe('testing action dates', () => {
         fechaHora:'2021-12-01T16:00',
         observaciones:'Pelo corto',
     };
-    it('action add new date', () => {
-        const action = addNewDate(newDate);
+    const DateWithID={ 
+        id:123456,       
+        nombrePropietario:'Juanito',
+        nombreMascota:'coco',
+        tipoServicio:'regular',
+        tarifa:20000,
+        fechaHora:'2021-12-01T16:00',
+        observaciones:'Pelo corto',
+    };
+    it('testing the sync action addNewDate', () => {
+        const action = addNewDate(DateWithID);
         expect(action).toEqual({
             type:ADD_DATE,
-            payload:newDate
+            payload:DateWithID
         });
     });
 
-    it('testing saveDate', async() => {
+    it('testing async action saveDate', async() => {
 
        await store.dispatch( SaveDate(newDate));
        const action = store.getActions();
@@ -54,4 +63,23 @@ describe('testing action dates', () => {
            }
        });
     });
+
+    it('testing sync action getAllDates', () => {
+        const action = getAllDates([DateWithID,DateWithID]);
+        
+        expect(action).toEqual({
+            type:GET_ALL_DATES,
+            payload:[DateWithID,DateWithID]
+        });
+    });
+
+    it('testing async action getAllDates', async() => {
+
+        await store.dispatch( GetDates());
+        const action = store.getActions();
+        expect(action[0]).toEqual({
+            type:GET_ALL_DATES,
+            payload:expect.any(Array)
+        });
+     });
 });

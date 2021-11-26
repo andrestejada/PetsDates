@@ -1,6 +1,7 @@
 import { Button, FormControl, InputLabel, Select, TextField } from '@material-ui/core';
 import React, { FormEvent, useEffect, useState } from 'react';
 import Alert from '@material-ui/lab/Alert';
+import { Cita } from '../../interfaces/index';
 import { FormContainer } from './styles';
 import { SaveDate } from '../../../../core/redux/acciones/Dates/DatesActions';
 import { UseForm } from '../../../../shared/hooks/useForm';
@@ -9,17 +10,10 @@ import { calcRate } from '../../../../shared/utils/calcRate';
 import { useDispatch } from 'react-redux';
 
 
-export interface FormCrearCitas{
-    nombrePropietario:string;
-    nombreMascota:string;
-    tipoServicio:string;
-    tarifa:number;
-    fechaHora:string;
-    observaciones:string;
-}
+
 export const FormularioCitas = () => {
     const dispatch = useDispatch();
-    const initialValues:FormCrearCitas={
+    const initialValues:Cita={
         nombrePropietario:'',
         nombreMascota:'',
         tipoServicio:'',
@@ -37,7 +31,7 @@ export const FormularioCitas = () => {
     // };
     const [error, setError] = useState<Boolean>(false);
     const [msg, setMsg] = useState<String>('');
-    const [formValues,handleOnChange,reset,setValues] = UseForm<FormCrearCitas>(initialValues);
+    const [formValues,handleOnChange,reset,setValues] = UseForm<Cita>(initialValues);
     const {
         nombrePropietario,
         nombreMascota,

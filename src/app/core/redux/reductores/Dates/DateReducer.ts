@@ -1,8 +1,8 @@
-import { ADD_DATE, DatesDispatchTypes } from '../../acciones/Dates/DatesTypes';
-import { FormCrearCitas } from '../../../../feature/Citas/components/FormularioCitas/index';
+import { ADD_DATE, DatesDispatchTypes, GET_ALL_DATES } from '../../acciones/Dates/DatesTypes';
+import { Citas } from '../../../../feature/Citas/interfaces/index';
 
 export interface Dates{
-    allDates:FormCrearCitas[]
+    allDates:Citas[]
 }
 const initialState:Dates={
     allDates:[]
@@ -16,6 +16,11 @@ export const dateReducer=(state:Dates=initialState,action:DatesDispatchTypes):Da
                 ...state,
                 allDates:[...state.allDates,action.payload]
             };    
+        case GET_ALL_DATES:
+            return{
+                ...state,
+                allDates:action.payload
+            };
         default:
             return state;
     }

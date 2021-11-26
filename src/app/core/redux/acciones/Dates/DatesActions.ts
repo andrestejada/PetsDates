@@ -1,9 +1,9 @@
-import {ADD_DATE , DatesDispatchTypes } from './DatesTypes';
+import { ADD_DATE, DatesDispatchTypes, GET_ALL_DATES } from './DatesTypes';
+import { Cita,Citas} from 'app/feature/Citas/interfaces';
 import { Dispatch } from 'redux';
-import { FormCrearCitas } from '../../../../feature/Citas/components/FormularioCitas';
 import { axiosIntance } from '../../../config/AxiosConfig';
 
-export const SaveDate=(date:FormCrearCitas)=>{
+export const SaveDate=(date:Cita)=>{
     return async (dispatch:Dispatch<DatesDispatchTypes>)=>{
         try {
             const {data} = await  axiosIntance.post('/dates',date);
@@ -15,7 +15,24 @@ export const SaveDate=(date:FormCrearCitas)=>{
 };
 
 
-export const addNewDate=(data:FormCrearCitas):DatesDispatchTypes=>({
+export const addNewDate=(data:Citas):DatesDispatchTypes=>({
     type:ADD_DATE,
+    payload:data
+});
+
+
+export const GetDates=()=>{
+    return async (dispatch:Dispatch<DatesDispatchTypes>)=>{
+        try {
+            const {data} = await  axiosIntance.get('/dates');
+            dispatch( getAllDates(data) );
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+
+export const getAllDates=(data:Citas[]):DatesDispatchTypes=>({
+    type:GET_ALL_DATES,
     payload:data
 });
