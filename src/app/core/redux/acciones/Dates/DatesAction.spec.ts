@@ -2,7 +2,11 @@ import { ADD_DATE,DELETE_DATE , DatesDispatchTypes, GET_ALL_DATES,} from './Date
 import {GetDates, SaveDate, addNewDate,deleteDate,deleteDateByID, getAllDates,  } from './DatesActions';
 import thunk ,{ThunkDispatch} from 'redux-thunk';
 import { Citas } from '../../../../feature/Citas/interfaces/index';
+import MockAdapter from 'axios-mock-adapter';
+import { axiosIntance } from '../../../config/AxiosConfig';
 import createMockStore from 'redux-mock-store';
+
+const mock = new MockAdapter(axiosIntance);
 
 
 
@@ -22,6 +26,7 @@ const initialState:State={
     }
 };
 let store = mockStore(initialState);
+
 const newDate={        
     nombrePropietario:'Juanito',
     nombreMascota:'coco',
@@ -54,7 +59,7 @@ describe('testing action dates', () => {
     });
 
     it('testing async action saveDate', async() => {
-
+       mock.onPost('/dates').reply(200, DateWithID);
        await store.dispatch( SaveDate(DateWithID));
        const action = store.getActions();
        expect(action[0]).toEqual({
@@ -67,6 +72,7 @@ describe('testing action dates', () => {
     });
 
     it('testing sync action getAllDates', () => {
+        
         const action = getAllDates([DateWithID,DateWithID]);
         
         expect(action).toEqual({
@@ -76,7 +82,7 @@ describe('testing action dates', () => {
     });
 
     it('testing async action getAllDates', async() => {
-
+        mock.onGet('/dates').reply(200, [DateWithID]);
         await store.dispatch( GetDates());
         const action = store.getActions();
         expect(action[0]).toEqual({
@@ -93,7 +99,7 @@ describe('testing action dates', () => {
          });
      });
      it('testing async action deleteDateByID', async() => {
-
+        mock.onDelete('/dates/123456').reply(200);
         await store.dispatch( deleteDateByID(DateWithID.id));
         const action = store.getActions();
         expect(action[0]).toEqual({

@@ -8,11 +8,7 @@ pipeline {
           sh 'npm install' 
       }
     }
-    stage('Serve') { 
-      steps {
-          sh 'npm run serve' 
-      }
-    }
+    
     stage('Lint'){
       steps {
           sh 'npm run lint' 

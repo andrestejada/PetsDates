@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
 import { dateReducer } from './Dates/DateReducer';
-import productos from './productos/productosReductor';
 
 
-const rootReducer = combineReducers({ 
-    productos, 
+const rootReducer = combineReducers({     
     dates:dateReducer
 });
 
