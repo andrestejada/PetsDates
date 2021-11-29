@@ -1,34 +1,37 @@
 import { Button, FormControl, InputLabel, Select, TextField } from '@material-ui/core';
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, {  FormEvent, useEffect, useState } from 'react';
+import {  useDispatch, useSelector } from 'react-redux';
 import Alert from '@material-ui/lab/Alert';
 import { Cita } from '../../interfaces/index';
 import { FormContainer } from './styles';
+import { RootState } from '../../../../core/redux/reductores/index';
 import { SaveDate } from '../../../../core/redux/acciones/Dates/DatesActions';
 import { UseForm } from '../../../../shared/hooks/useForm';
-import { ValidateEmptyInputs } from '../../../../shared/utils/ValidarCamposVacios';
+import { ValidateEmptyInputs } from '../../../../shared/utils/formValidation/ValidarCamposVacios';
+import { ValidateQuantityDates } from '../../../../shared/utils/formValidation/ValidateQuantityDates';
 import { calcRate } from '../../../../shared/utils/calcRate';
-import { useDispatch } from 'react-redux';
 
 
 
 export const FormularioCitas = () => {
     const dispatch = useDispatch();
-    const initialValues:Cita={
-        nombrePropietario:'',
-        nombreMascota:'',
-        tipoServicio:'',
-        tarifa:0,
-        fechaHora:'',
-        observaciones:'',
-    };
-    // const initialValues:FormCrearCitas={
-    //     nombrePropietario:'Andres',
-    //     nombreMascota:'sol',
-    //     tipoServicio:'basico',
-    //     tarifa:10000,
-    //     fechaHora:'2021-12-01T16:00',
-    //     observaciones:'pelo corto',
+    const allDates = useSelector((state:RootState) => state.dates.allDates);
+    // const initialValues:Cita={
+    //     nombrePropietario:'',
+    //     nombreMascota:'',
+    //     tipoServicio:'',
+    //     tarifa:0,
+    //     fechaHora:'',
+    //     observaciones:'',
     // };
+    const initialValues:Cita={
+        nombrePropietario:'Andres',
+        nombreMascota:'sol',
+        tipoServicio:'basico',
+        tarifa:10000,
+        fechaHora:'2021-12-01T16:00',
+        observaciones:'pelo corto',
+    };
     const [error, setError] = useState<Boolean>(false);
     const [msg, setMsg] = useState<String>('');
     const [formValues,handleOnChange,reset,setValues] = UseForm<Cita>(initialValues);
@@ -49,9 +52,16 @@ export const FormularioCitas = () => {
             setMsg('Todos los campos son obligatorios');
             return;
         }
-        dispatch(SaveDate(formValues));
+        //validate max quantity
+        const isEnoughDates = ValidateQuantityDates(formValues,allDates);
+        if(isEnoughDates){
+            setError(true);
+            setMsg('Solo puedes agregar 5 citas que corresponda al mismo dia');
+            return; 
+        }        
+        // dispatch(SaveDate(formValues));
         setError(false);
-        reset();
+        // reset();
     };
     useEffect(() => {
         setValues({...formValues,tarifa:calcRate(tipoServicio)});
@@ -61,6 +71,14 @@ export const FormularioCitas = () => {
         <FormContainer
             onSubmit={handleSubmit}
         >
+            {
+                error &&
+                <Alert 
+                    severity="error"
+                    id="alerta"
+                >{msg}
+                </Alert>
+            }
             <TextField
                 type='text'
                 id="outlined-required"
@@ -132,14 +150,7 @@ export const FormularioCitas = () => {
             >
                 Guardar Citas
             </Button>
-            {
-                error &&
-                <Alert 
-                    severity="error"
-                    id="alerta"
-                >{msg}
-                </Alert>
-            }
+            
         </FormContainer>
     );
 };

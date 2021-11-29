@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import {  FormularioCitas  } from './index';
 import { Provider } from 'react-redux';
 import React from 'react';
-import { ValidateEmptyInputs } from 'app/shared/utils/ValidarCamposVacios';
+import { ValidateEmptyInputs } from 'app/shared/utils/formValidation/ValidarCamposVacios';
 import createMockStore from 'redux-mock-store';
 import { mount,  } from 'enzyme';
 import thunk from 'redux-thunk';
