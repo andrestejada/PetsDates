@@ -9,10 +9,14 @@ import thunk from 'redux-thunk';
 
 const middlewares = [thunk]; // add your middlewares like `redux-thunk`
 const mockStore = createMockStore(middlewares);
-const initialState={};
+const initialState={
+    dates:{
+        allDates:[]
+    }
+};
 let store = mockStore(initialState);
 
-jest.mock('../../../../shared/utils/ValidarCamposVacios.ts',()=>({
+jest.mock('../../../../shared/utils/formValidation/ValidarCamposVacios.ts',()=>({
     ValidateEmptyInputs: jest.fn(),
 }));
 

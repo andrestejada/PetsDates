@@ -10,6 +10,7 @@ import { UseForm } from '../../../../shared/hooks/useForm';
 import { ValidateEmptyInputs } from '../../../../shared/utils/formValidation/ValidarCamposVacios';
 import { ValidateQuantityDates } from '../../../../shared/utils/formValidation/ValidateQuantityDates';
 import { calcRate } from '../../../../shared/utils/calcRate';
+import { validateWeekend } from '../../../../shared/utils/validateWeekend';
 
 
 
@@ -29,7 +30,7 @@ export const FormularioCitas = () => {
         nombreMascota:'sol',
         tipoServicio:'basico',
         tarifa:10000,
-        fechaHora:'2021-12-01T16:00',
+        fechaHora:'2021-11-26T16:00',
         observaciones:'pelo corto',
     };
     const [error, setError] = useState<Boolean>(false);
@@ -52,16 +53,25 @@ export const FormularioCitas = () => {
             setMsg('Todos los campos son obligatorios');
             return;
         }
+
+        //validate if is weekend
+        const isWeekend = validateWeekend(fechaHora);
+        if(isWeekend){
+            setError(true);
+            setMsg('Recuerda que no puedes agregar citas de lunes a viernes');
+            return; 
+        }
         //validate max quantity
         const isEnoughDates = ValidateQuantityDates(formValues,allDates);
         if(isEnoughDates){
             setError(true);
             setMsg('Solo puedes agregar 5 citas que corresponda al mismo dia');
             return; 
-        }        
-        // dispatch(SaveDate(formValues));
+        }
+        //save in the db        
         setError(false);
-        // reset();
+        dispatch(SaveDate(formValues));
+        reset();
     };
     useEffect(() => {
         setValues({...formValues,tarifa:calcRate(tipoServicio)});

@@ -6,43 +6,43 @@
       "tipoServicio": "premium",
       "tarifa": 30000,
       "fechaHora": "2021-11-26T13:54",
-      "observaciones": "estupendo",
+      "observaciones": "bien corto",
       "id": 1
     },
     {
-      "nombrePropietario": "Andres",
-      "nombreMascota": "Sol",
+      "nombrePropietario": "Luisa",
+      "nombreMascota": "Dana",
       "tipoServicio": "premium",
       "tarifa": 30000,
       "fechaHora": "2021-11-26T13:54",
-      "observaciones": "estupendo",
+      "observaciones": "orejas limpias",
       "id": 2
     },
     {
-      "nombrePropietario": "Andres",
-      "nombreMascota": "Sol",
+      "nombrePropietario": "Luis",
+      "nombreMascota": "coco",
       "tipoServicio": "premium",
       "tarifa": 30000,
       "fechaHora": "2021-11-26T13:54",
-      "observaciones": "estupendo",
+      "observaciones": "moño rojo",
       "id": 3
     },
     {
-      "nombrePropietario": "Andres",
-      "nombreMascota": "Sol",
+      "nombrePropietario": "Angela",
+      "nombreMascota": "Luna",
       "tipoServicio": "premium",
       "tarifa": 30000,
       "fechaHora": "2021-11-26T13:54",
-      "observaciones": "estupendo",
+      "observaciones": "uñas pintadas",
       "id": 25
     },
     {
-      "nombrePropietario": "Andres",
-      "nombreMascota": "Sol",
+      "nombrePropietario": "Carolina",
+      "nombreMascota": "lasie",
       "tipoServicio": "premium",
       "tarifa": 30000,
       "fechaHora": "2021-11-26T13:54",
-      "observaciones": "estupendo",
+      "observaciones": "cabello largo y planchado",
       "id": 39
     }
   ]

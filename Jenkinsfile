@@ -8,6 +8,11 @@ pipeline {
           sh 'npm install' 
       }
     }
+    stage('Serve') { 
+      steps {
+          sh 'npm run serve' 
+      }
+    }
     stage('Lint'){
       steps {
           sh 'npm run lint' 
@@ -16,6 +21,12 @@ pipeline {
     stage('Test'){
       steps {
           sh 'npm test' 
+      }
+    }
+
+    stage('Test:Coverage'){
+      steps {
+          sh 'npm run test:coverage' 
       }
     }
     
