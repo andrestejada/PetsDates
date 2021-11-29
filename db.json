@@ -5,7 +5,7 @@
       "nombreMascota": "Sol",
       "tipoServicio": "premium",
       "tarifa": 30000,
-      "fechaHora": "2021-11-26T13:54",
+      "fechaHora": "2021-11-26T08:00",
       "observaciones": "bien corto",
       "id": 1
     },
@@ -14,7 +14,7 @@
       "nombreMascota": "Dana",
       "tipoServicio": "premium",
       "tarifa": 30000,
-      "fechaHora": "2021-11-26T13:54",
+      "fechaHora": "2021-11-26T18:00",
       "observaciones": "orejas limpias",
       "id": 2
     },
@@ -23,7 +23,7 @@
       "nombreMascota": "coco",
       "tipoServicio": "premium",
       "tarifa": 30000,
-      "fechaHora": "2021-11-26T13:54",
+      "fechaHora": "2021-11-26T10:00",
       "observaciones": "moño rojo",
       "id": 3
     },
@@ -32,18 +32,9 @@
       "nombreMascota": "Luna",
       "tipoServicio": "premium",
       "tarifa": 30000,
-      "fechaHora": "2021-11-26T13:54",
+      "fechaHora": "2021-11-26T12:00",
       "observaciones": "uñas pintadas",
       "id": 25
-    },
-    {
-      "nombrePropietario": "Carolina",
-      "nombreMascota": "lasie",
-      "tipoServicio": "premium",
-      "tarifa": 30000,
-      "fechaHora": "2021-11-26T13:54",
-      "observaciones": "cabello largo y planchado",
-      "id": 39
     }
   ]
 }

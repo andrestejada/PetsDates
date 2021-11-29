@@ -10,6 +10,7 @@ import { UseForm } from '../../../../shared/hooks/useForm';
 import { ValidateEmptyInputs } from '../../../../shared/utils/formValidation/ValidarCamposVacios';
 import { ValidateQuantityDates } from '../../../../shared/utils/formValidation/ValidateQuantityDates';
 import { calcRate } from '../../../../shared/utils/calcRate';
+import { validateSameHours } from '../../../../shared/utils/formValidation/ValidateSameHours';
 import { validateWeekend } from '../../../../shared/utils/validateWeekend';
 
 
@@ -66,6 +67,13 @@ export const FormularioCitas = () => {
         if(isEnoughDates){
             setError(true);
             setMsg('Solo puedes agregar 5 citas que corresponda al mismo dia');
+            return; 
+        }
+
+        const isBetweenDate = validateSameHours(formValues,allDates);
+        if(isBetweenDate){
+            setError(true);
+            setMsg('No puedes agregar 2 citas a la misma hora,recuerda que cada cita tiene una duración de 2 horas.');
             return; 
         }
         //save in the db        
