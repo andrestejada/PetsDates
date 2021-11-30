@@ -2,7 +2,6 @@ import { Button, Card, CardContent, Typography } from '@material-ui/core';
 import { ButtonContainer, TextInformation } from './styles';
 import { Citas } from '../../../interfaces/index';
 import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
 import React from 'react';
 import { deleteDateByID } from 'app/core/redux/acciones/Dates/DatesActions';
 import { useDispatch } from 'react-redux';
@@ -51,13 +50,6 @@ const CardCitas = ({
               onClick={()=>dispatch(deleteDateByID(id))}
             >
               Borrar
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={<EditIcon />}
-            >
-              Editar
             </Button>
           </ButtonContainer>
         </CardContent>
