@@ -42,7 +42,7 @@ describe('Prueba unitarias formulario de citas', () => {
     });
 
     it('probar el onsubmit del formulario', () => {
-        componentWrapper.find('form').simulate('submit',{preventDefault(){}});        
+        componentWrapper.find('form').simulate('submit',{preventDefault(){}});
         expect(validateEmptyInputs).toHaveBeenCalled();
     });    
    
