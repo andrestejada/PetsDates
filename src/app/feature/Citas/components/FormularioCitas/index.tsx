@@ -51,7 +51,7 @@ export const FormularioCitas = () => {
         const isWeekend = validateWeekend(fechaHora);
         if(isWeekend){
             setError(true);
-            setMsg('Recuerda que no puedes agregar citas de lunes a viernes');
+            setMsg('Recuerda que solo puedes agregar citas de lunes a viernes');
             return; 
         }
         //validate max quantity
