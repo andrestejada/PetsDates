@@ -1,4 +1,4 @@
-import { Citas} from '../../../../feature/Citas/interfaces/index';
+import { Citas } from '../../../../feature/Citas/interfaces/index';
 
 export const ADD_DATE = 'ADD_DATE';
 export const GET_ALL_DATES = 'GET_ALL_DATES';
@@ -6,25 +6,24 @@ export const DELETE_DATE = 'DELETE_DATE';
 
 interface AccionAddDate {
   type: typeof ADD_DATE;
-  payload: Citas;  
+  payload: Citas;
 }
 interface AccionGetDates {
   type: typeof GET_ALL_DATES;
-  payload: Citas[];  
+  payload: Citas[];
 }
 
-interface AcctionDeleteDate{
-  type: typeof DELETE_DATE,
-  payload:number
+interface AcctionDeleteDate {
+  type: typeof DELETE_DATE;
+  payload: number;
 }
-interface AccionDefaultState {  
-  type: ''
+interface AccionDefaultState {
+  type: '';
 }
 
-
-export type DatesDispatchTypes  =
+export type DatesDispatchTypes =
   | AcctionDeleteDate
   | AccionAddDate
   | AccionGetDates
   | AccionDefaultState;
- 
+  
