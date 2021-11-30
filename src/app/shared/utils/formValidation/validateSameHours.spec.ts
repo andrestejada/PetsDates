@@ -1,7 +1,7 @@
 import {Cita ,Citas} from '../../../feature/Citas/interfaces/index';
 import { validateSameHours } from './ValidateSameHours';
 describe('testing in the function validateSameHours', () => {
-    const datesTest: Citas[] = [
+    const datesTestHours: Citas[] = [
         {
           id: 1,
           nombrePropietario: 'Andres',
@@ -59,19 +59,19 @@ describe('testing in the function validateSameHours', () => {
           observaciones: 'pelo corto',
         };
       
-        const isBetweenDate = validateSameHours(newDateEqual,datesTest);
+        const isBetweenDate = validateSameHours(newDateEqual,datesTestHours);
         expect(isBetweenDate).toBe(true);
     });
     it('should be return false', () => {
       const newDateDiferent:Cita ={
-        nombrePropietario: 'Juanito',
-        nombreMascota: 'pepita',
-        tipoServicio: 'basico',
-        tarifa: 10000,
+        nombrePropietario: 'Carlitos',
+        nombreMascota: 'mickey',
+        tipoServicio: 'premiun',
+        tarifa: 20000,
         fechaHora: '2021-12-01T20:00',
-        observaciones: 'pelo corto',
+        observaciones: 'pelo largo',
       };
-        const isBetweenDate = validateSameHours(newDateDiferent,datesTest);
+        const isBetweenDate = validateSameHours(newDateDiferent,datesTestHours);
         expect(isBetweenDate).toBe(false);
     });
 });

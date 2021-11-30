@@ -7,7 +7,7 @@ import { axiosIntance } from '../../../config/AxiosConfig';
 import createMockStore from 'redux-mock-store';
 
 const mock = new MockAdapter(axiosIntance);
-const status:number=200;
+const status=200;
 type DispatchExts = ThunkDispatch<State, void, DatesDispatchTypes>;
 const middlewares = [thunk]; // add your middlewares like `redux-thunk`
 const mockStore = createMockStore<State,DispatchExts>(middlewares);

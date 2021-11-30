@@ -13,7 +13,7 @@ describe('', () => {
       };
 
     it('Should be return a boolean Valueww', () => {
-        const datesTest: Citas[] = [
+        const datesTestQuantity: Citas[] = [
             {
               id: 1,
               nombrePropietario: 'Andres',
@@ -24,12 +24,12 @@ describe('', () => {
               observaciones: 'pelo corto',
             },
           ];
-        const isEnougDates = validateQuantityDates(newDate,datesTest);
+        const isEnougDates = validateQuantityDates(newDate,datesTestQuantity);
         expect(isEnougDates).toBe(false);
     });
 
     it('Should be return a boolean Value', () => {
-        const datesTest: Citas[] = [
+        const datesTestComplete: Citas[] = [
             {
               id: 1,
               nombrePropietario: 'Andres',
@@ -76,7 +76,7 @@ describe('', () => {
               observaciones: 'pelo corto',
             },
           ];
-        const isEnougDates = validateQuantityDates(newDate,datesTest);
+        const isEnougDates = validateQuantityDates(newDate,datesTestComplete);
         expect(isEnougDates).toBe(true);
     });
 });
