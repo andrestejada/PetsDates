@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet';
 import { Layout } from './index';
 import React from 'react';
 import { mount } from 'enzyme';
@@ -7,7 +6,6 @@ import { mount } from 'enzyme';
 describe('testing in the component <Layout/>', () => {
     const title ='hola mundo';
     const description = 'esto es una prueba';
-    const helmet = Helmet.peek();
     const componentWrapper = mount(
         <Layout
             title={title}

@@ -2,7 +2,7 @@ import { Citas} from '../../../feature/Citas/interfaces/index';
 import { newDate } from '../../fixture/dates';
 import { validateQuantityDates } from './ValidateQuantityDates';
 
-describe('', () => {
+describe('testing in the valideQuantitydate function', () => {
 
     it('Should be return a boolean Valueww', () => {
         const datesTestQuantity: Citas[] = [

@@ -9,8 +9,8 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
     className="MuiFormControl-root MuiTextField-root"
   >
     <label
-      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
-      data-shrink={true}
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink={false}
       htmlFor="outlined-required"
       id="outlined-required-label"
     >
@@ -33,14 +33,14 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
         onFocus={[Function]}
         required={false}
         type="text"
-        value="Andres"
+        value=""
       />
       <fieldset
         aria-hidden={true}
         className="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          className="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+          className="PrivateNotchedOutline-legendLabelled-3"
         >
           <span>
             Nombre del Propietario
@@ -53,8 +53,8 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
     className="MuiFormControl-root MuiTextField-root"
   >
     <label
-      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
-      data-shrink={true}
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink={false}
       htmlFor="outlined-required"
       id="outlined-required-label"
     >
@@ -77,14 +77,14 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
         onFocus={[Function]}
         required={false}
         type="text"
-        value="sol"
+        value=""
       />
       <fieldset
         aria-hidden={true}
         className="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          className="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+          className="PrivateNotchedOutline-legendLabelled-3"
         >
           <span>
             Nombre de la mascota
@@ -97,8 +97,8 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
     className="MuiFormControl-root"
   >
     <label
-      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
-      data-shrink={true}
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink={false}
       htmlFor="outlined-age-native-simple"
     >
       Tipo de servicio
@@ -119,7 +119,7 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
           onChange={[Function]}
           onFocus={[Function]}
           required={false}
-          value="basico"
+          value=""
         >
           <option
             aria-label="None"
@@ -155,13 +155,27 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
       <fieldset
         aria-hidden={true}
         className="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+        style={
+          Object {
+            "paddingLeft": 8,
+          }
+        }
       >
         <legend
-          className="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+          className="PrivateNotchedOutline-legend-2"
+          style={
+            Object {
+              "width": 0.01,
+            }
+          }
         >
-          <span>
-            Age
-          </span>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "&#8203;",
+              }
+            }
+          />
         </legend>
       </fieldset>
     </div>
@@ -195,7 +209,7 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
         readOnly={true}
         required={false}
         type="text"
-        value={10000}
+        value={0}
       />
       <fieldset
         aria-hidden={true}
@@ -215,7 +229,7 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
     className="MuiFormControl-root MuiTextField-root"
   >
     <label
-      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
       data-shrink={true}
       htmlFor="datetime-local"
       id="datetime-local-label"
@@ -239,7 +253,7 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
         onFocus={[Function]}
         required={false}
         type="datetime-local"
-        value="2021-11-26T16:00"
+        value=""
       />
     </div>
   </div>
@@ -247,8 +261,8 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
     className="MuiFormControl-root MuiTextField-root"
   >
     <label
-      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
-      data-shrink={true}
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink={false}
       htmlFor="outlined-multiline-static"
       id="outlined-multiline-static-label"
     >
@@ -278,7 +292,7 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
               "overflow": "hidden",
             }
           }
-          value="pelo corto"
+          value=""
         />,
         <textarea
           aria-hidden={true}
@@ -303,7 +317,7 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
         className="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          className="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+          className="PrivateNotchedOutline-legendLabelled-3"
         >
           <span>
             Observaciones

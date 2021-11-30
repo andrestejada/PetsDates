@@ -18,21 +18,13 @@ import { validateWeekend } from '../../../../shared/utils/validateWeekend';
 export const FormularioCitas = () => {
     const dispatch = useDispatch();
     const allDates = useSelector((state:RootState) => state.dates.allDates);
-    // const initialValues:Cita={
-    //     nombrePropietario:'',
-    //     nombreMascota:'',
-    //     tipoServicio:'',
-    //     tarifa:0,
-    //     fechaHora:'',
-    //     observaciones:'',
-    // };
     const initialValues:Cita={
-        nombrePropietario:'Andres',
-        nombreMascota:'sol',
-        tipoServicio:'basico',
-        tarifa:10000,
-        fechaHora:'2021-11-26T16:00',
-        observaciones:'pelo corto',
+        nombrePropietario:'',
+        nombreMascota:'',
+        tipoServicio:'',
+        tarifa:0,
+        fechaHora:'',
+        observaciones:'',
     };
     const [error, setError] = useState(false);
     const [msg, setMsg] = useState('');
@@ -119,8 +111,7 @@ export const FormularioCitas = () => {
                 <Select
                     native                    
                     name='tipoServicio'
-                    onChange={handleOnChange}
-                    label="Age"
+                    onChange={handleOnChange}                    
                     value={tipoServicio}                    
                 >
                     <option aria-label="None" value="" />
