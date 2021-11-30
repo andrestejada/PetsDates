@@ -1,11 +1,14 @@
 export const calcRate=(rate:string)=>{
+    const basicValue = 10000;
+    const regularValue = 20000;
+    const premiumValue = 30000;
     switch (rate) {
         case 'basico':
-            return 10000 ;
+            return basicValue ;
         case 'regular':
-            return 20000 ;
+            return regularValue ;
         case 'premium':
-            return 30000 ;    
+            return premiumValue ;    
         default:
             return 0;
     }

@@ -3,13 +3,13 @@ import { Cita,Citas} from 'app/feature/Citas/interfaces';
 import { Dispatch } from 'redux';
 import { axiosIntance } from '../../../config/AxiosConfig';
 
-export const SaveDate=(date:Cita)=>{
+export const saveDate=(date:Cita)=>{
     return async (dispatch:Dispatch<DatesDispatchTypes>)=>{
         try {
             const {data} = await  axiosIntance.post('/dates',date);
             dispatch( addNewDate(data) );
         } catch (error) {
-            console.log(error);
+            alert(error);
         }
     };
 };
@@ -21,13 +21,13 @@ export const addNewDate=(data:Citas):DatesDispatchTypes=>({
 });
 
 
-export const GetDates=()=>{
+export const getDates=()=>{
     return async (dispatch:Dispatch<DatesDispatchTypes>)=>{
         try {
             const {data} = await  axiosIntance.get('/dates');
             dispatch( getAllDates(data) );
         } catch (error) {
-            console.log(error);
+            alert(error);
         }
     };
 };
@@ -44,7 +44,7 @@ export const deleteDateByID=(id:number)=>{
             await axiosIntance.delete(`/dates/${id}`);
             dispatch(deleteDate(id));
         } catch (error) {
-            console.log(error);
+            alert(error);
         }
     };
 };

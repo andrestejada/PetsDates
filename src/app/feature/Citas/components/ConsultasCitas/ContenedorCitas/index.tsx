@@ -3,10 +3,10 @@ import { Citas } from '../../../interfaces/index';
 import { DatesContainer } from './styles';
 import React from 'react';
 
-interface props{
+interface Props{
     dates:Citas[]
 }
-const ContenedorCitas = ({dates}:props) => {    
+const ContenedorCitas = ({dates}:Props) => {    
     return (
         <DatesContainer>
             {

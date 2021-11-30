@@ -1,4 +1,4 @@
-import { ValidateEmptyInputs } from './ValidarCamposVacios';
+import { validateEmptyInputs } from './ValidarCamposVacios';
 describe('testing in function  validarCamposVacios', () => {
     it('should be return a false', () => {
         const initialValues={
@@ -10,7 +10,7 @@ describe('testing in function  validarCamposVacios', () => {
             observaciones:'pelo corto',
         };
         
-        const isEmptyFields = ValidateEmptyInputs(initialValues);
+        const isEmptyFields = validateEmptyInputs(initialValues);
         expect(isEmptyFields).toBe(false);
     });
     it('should be return a true', () => {
@@ -23,7 +23,7 @@ describe('testing in function  validarCamposVacios', () => {
             observaciones:'pelo largo',
         };
         
-        const isEmptyFields = ValidateEmptyInputs(initialValues);
+        const isEmptyFields = validateEmptyInputs(initialValues);
         expect(isEmptyFields).toBe(true);
     });
 });

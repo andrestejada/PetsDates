@@ -5,11 +5,11 @@ import Alert from '@material-ui/lab/Alert';
 import { Cita } from '../../interfaces/index';
 import { FormContainer } from './styles';
 import { RootState } from '../../../../core/redux/reductores/index';
-import { SaveDate } from '../../../../core/redux/acciones/Dates/DatesActions';
-import { UseForm } from '../../../../shared/hooks/useForm';
-import { ValidateEmptyInputs } from '../../../../shared/utils/formValidation/ValidarCamposVacios';
-import { ValidateQuantityDates } from '../../../../shared/utils/formValidation/ValidateQuantityDates';
 import { calcRate } from '../../../../shared/utils/calcRate';
+import { saveDate } from '../../../../core/redux/acciones/Dates/DatesActions';
+import { useForm } from '../../../../shared/hooks/useForm';
+import { validateEmptyInputs } from '../../../../shared/utils/formValidation/ValidarCamposVacios';
+import { validateQuantityDates } from '../../../../shared/utils/formValidation/ValidateQuantityDates';
 import { validateSameHours } from '../../../../shared/utils/formValidation/ValidateSameHours';
 import { validateWeekend } from '../../../../shared/utils/validateWeekend';
 
@@ -34,9 +34,9 @@ export const FormularioCitas = () => {
         fechaHora:'2021-11-26T16:00',
         observaciones:'pelo corto',
     };
-    const [error, setError] = useState<Boolean>(false);
-    const [msg, setMsg] = useState<String>('');
-    const [formValues,handleOnChange,reset,setValues] = UseForm<Cita>(initialValues);
+    const [error, setError] = useState(false);
+    const [msg, setMsg] = useState('');
+    const [formValues,handleOnChange,reset,setValues] = useForm<Cita>(initialValues);
     const {
         nombrePropietario,
         nombreMascota,
@@ -48,7 +48,7 @@ export const FormularioCitas = () => {
     const handleSubmit=(e:FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
         //validate empty fields
-        const isEmptyFields = ValidateEmptyInputs(formValues);
+        const isEmptyFields = validateEmptyInputs(formValues);
          if(isEmptyFields){
             setError(true);
             setMsg('Todos los campos son obligatorios');
@@ -63,7 +63,7 @@ export const FormularioCitas = () => {
             return; 
         }
         //validate max quantity
-        const isEnoughDates = ValidateQuantityDates(formValues,allDates);
+        const isEnoughDates = validateQuantityDates(formValues,allDates);
         if(isEnoughDates){
             setError(true);
             setMsg('Solo puedes agregar 5 citas que corresponda al mismo dia');
@@ -78,7 +78,7 @@ export const FormularioCitas = () => {
         }
         //save in the db        
         setError(false);
-        dispatch(SaveDate(formValues));
+        dispatch(saveDate(formValues));
         reset();
     };
     useEffect(() => {

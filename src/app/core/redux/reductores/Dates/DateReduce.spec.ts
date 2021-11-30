@@ -33,17 +33,17 @@ describe('test dates reducer', () => {
     });
     it('debe de obtener todas la citas', () => {
         const dates:Citas[] =[Date,Date];
-
         const actionGetAllDates:DatesDispatchTypes ={
             type:GET_ALL_DATES,
             payload:dates
         };
+        const totalDate = 2;
         const stateWithAllDates= dateReducer(initialState,actionGetAllDates);
-        expect(stateWithAllDates.allDates.length).toBe(2);
+        expect(stateWithAllDates.allDates.length).toBe(totalDate);
         expect(stateWithAllDates).toEqual({...initialState,allDates:dates});
     });
     it('should be return the state without the delete date', () => {
-        const initialState:Dates={
+        const initialStateDelete:Dates={
             allDates:[Date]
         };
         const actionDeleteDate:DatesDispatchTypes={
@@ -51,8 +51,8 @@ describe('test dates reducer', () => {
             payload:Date.id
         };
 
-        const stateWithoutDate = dateReducer(initialState,actionDeleteDate);
+        const stateWithoutDate = dateReducer(initialStateDelete,actionDeleteDate);
         expect(stateWithoutDate.allDates.length).toBe(0);
-        expect(stateWithoutDate).toEqual({...initialState,allDates:[]});
+        expect(stateWithoutDate).toEqual({...initialStateDelete,allDates:[]});
     });
 });

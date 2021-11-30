@@ -52,6 +52,7 @@ const newDate:Cita ={
 describe('testing utils function compareSameDates', () => {
     it('should be return a number 5', () => {
         const quantityDates =compareSameDates(datesTest,newDate);
-        expect(quantityDates).toBe(4);
+        const resultOfDates = 4;
+        expect(quantityDates).toBe(resultOfDates);
     });
 });
