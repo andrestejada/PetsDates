@@ -1,16 +1,8 @@
-import { Cita ,Citas} from '../../../feature/Citas/interfaces/index';
+import { Citas} from '../../../feature/Citas/interfaces/index';
+import { newDate } from '../../fixture/dates';
 import { validateQuantityDates } from './ValidateQuantityDates';
 
 describe('', () => {
-    
-    const newDate:Cita ={
-        nombrePropietario: 'Juanito',
-        nombreMascota: 'mateo',
-        tipoServicio: 'basico',
-        tarifa: 10000,
-        fechaHora: '2021-12-01T16:00',
-        observaciones: 'pelo corto',
-      };
 
     it('Should be return a boolean Valueww', () => {
         const datesTestQuantity: Citas[] = [

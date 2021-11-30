@@ -1,14 +1,6 @@
-import { Cita, Citas } from '../../feature/Citas/interfaces/index';
+import { Citas } from '../../feature/Citas/interfaces/index';
 import { compareSameDates } from './compareSameDates';
-
-const newDate:Cita ={
-    nombrePropietario: 'Andres',
-    nombreMascota: 'sol',
-    tipoServicio: 'basico',
-    tarifa: 10000,
-    fechaHora: '2021-12-01T16:00',
-    observaciones: 'pelo corto',
-  };
+import { newDate } from '../fixture/dates';
 
   const datesTest: Citas[] = [
     {
