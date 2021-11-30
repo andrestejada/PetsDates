@@ -1,4 +1,4 @@
-import {Cita ,Citas} from '../../../feature/Citas/interfaces/index';
+import {Cita } from '../../../feature/Citas/interfaces/index';
 import { datesTest } from '../../fixture/dates';
 import { validateSameHours } from './ValidateSameHours';
 describe('testing in the function validateSameHours', () => {
