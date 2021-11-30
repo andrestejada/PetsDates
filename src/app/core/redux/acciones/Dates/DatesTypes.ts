@@ -25,5 +25,4 @@ export type DatesDispatchTypes =
   | AcctionDeleteDate
   | AccionAddDate
   | AccionGetDates
-  | AccionDefaultState;
-  
+  | AccionDefaultState;  
