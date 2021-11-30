@@ -2,10 +2,10 @@ import '@testing-library/jest-dom';
 import {  FormularioCitas  } from './index';
 import { Provider } from 'react-redux';
 import React from 'react';
-import { ValidateEmptyInputs } from 'app/shared/utils/formValidation/ValidarCamposVacios';
 import createMockStore from 'redux-mock-store';
 import { mount,  } from 'enzyme';
 import thunk from 'redux-thunk';
+import { validateEmptyInputs } from 'app/shared/utils/formValidation/ValidarCamposVacios';
 
 const middlewares = [thunk]; // add your middlewares like `redux-thunk`
 const mockStore = createMockStore(middlewares);
@@ -17,7 +17,7 @@ const initialState={
 let store = mockStore(initialState);
 
 jest.mock('../../../../shared/utils/formValidation/ValidarCamposVacios.ts',()=>({
-    ValidateEmptyInputs: jest.fn(),
+    validateEmptyInputs: jest.fn(),
 }));
 
 describe('Prueba unitarias formulario de citas', () => {
@@ -43,7 +43,7 @@ describe('Prueba unitarias formulario de citas', () => {
 
     it('probar el onsubmit del formulario', () => {
         componentWrapper.find('form').simulate('submit',{preventDefault(){}});        
-        expect(ValidateEmptyInputs).toHaveBeenCalled();
+        expect(validateEmptyInputs).toHaveBeenCalled();
     });    
    
 });

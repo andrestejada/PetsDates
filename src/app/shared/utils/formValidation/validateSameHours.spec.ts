@@ -13,8 +13,8 @@ describe('testing in the function validateSameHours', () => {
         },
         {
           id: 2,
-          nombrePropietario: 'Andres',
-          nombreMascota: 'sol',
+          nombrePropietario: 'Luis',
+          nombreMascota: 'danna',
           tipoServicio: 'basico',
           tarifa: 10000,
           fechaHora: '2021-12-01T16:00',
@@ -22,8 +22,8 @@ describe('testing in the function validateSameHours', () => {
         },
         {
           id: 3,
-          nombrePropietario: 'Andres',
-          nombreMascota: 'sol',
+          nombrePropietario: 'Angela',
+          nombreMascota: 'coco',
           tipoServicio: 'basico',
           tarifa: 10000,
           fechaHora: '2021-12-01T16:00',
@@ -31,8 +31,8 @@ describe('testing in the function validateSameHours', () => {
         },
         {
           id: 4,
-          nombrePropietario: 'Andres',
-          nombreMascota: 'sol',
+          nombrePropietario: 'Carolina',
+          nombreMascota: 'lasie',
           tipoServicio: 'basico',
           tarifa: 10000,
           fechaHora: '2021-12-01T16:00',
@@ -40,8 +40,8 @@ describe('testing in the function validateSameHours', () => {
         },
         {
           id: 5,
-          nombrePropietario: 'Andres',
-          nombreMascota: 'sol',
+          nombrePropietario: 'Luis',
+          nombreMascota: 'venus',
           tipoServicio: 'basico',
           tarifa: 10000,
           fechaHora: '2021-12-01T16:00',
@@ -49,29 +49,29 @@ describe('testing in the function validateSameHours', () => {
         }
     ];
 
-    
     it('should be return true', () => {
-        const newDate:Cita ={
-            nombrePropietario: 'Andres',
-            nombreMascota: 'sol',
-            tipoServicio: 'basico',
-            tarifa: 10000,
-            fechaHora: '2021-12-01T16:00',
-            observaciones: 'pelo corto',
-          };
-        const isBetweenDate = validateSameHours(newDate,datesTest);
+      const newDateEqual:Cita ={
+          nombrePropietario: 'Juanito',
+          nombreMascota: 'pepita',
+          tipoServicio: 'basico',
+          tarifa: 10000,
+          fechaHora: '2021-12-01T16:00',
+          observaciones: 'pelo corto',
+        };
+      
+        const isBetweenDate = validateSameHours(newDateEqual,datesTest);
         expect(isBetweenDate).toBe(true);
     });
     it('should be return false', () => {
-        const newDate:Cita ={
-            nombrePropietario: 'Andres',
-            nombreMascota: 'sol',
-            tipoServicio: 'basico',
-            tarifa: 10000,
-            fechaHora: '2021-12-01T20:00',
-            observaciones: 'pelo corto',
-          };
-        const isBetweenDate = validateSameHours(newDate,datesTest);
+      const newDateDiferent:Cita ={
+        nombrePropietario: 'Juanito',
+        nombreMascota: 'pepita',
+        tipoServicio: 'basico',
+        tarifa: 10000,
+        fechaHora: '2021-12-01T20:00',
+        observaciones: 'pelo corto',
+      };
+        const isBetweenDate = validateSameHours(newDateDiferent,datesTest);
         expect(isBetweenDate).toBe(false);
     });
 });

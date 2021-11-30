@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContenedorCitas from './ContenedorCitas/index';
-import { GetDates } from '../../../../core/redux/acciones/Dates/DatesActions';
 import { RootState } from '../../../../core/redux/reductores/index';
+import { getDates } from '../../../../core/redux/acciones/Dates/DatesActions';
 
 
 const ConsultarCitas = () => {
     const {allDates} = useSelector((state:RootState) => state.dates);
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(GetDates());
+        dispatch(getDates());
     }, [dispatch]);
     
     return (

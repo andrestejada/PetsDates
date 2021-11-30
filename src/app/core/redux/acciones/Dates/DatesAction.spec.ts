@@ -1,5 +1,5 @@
 import { ADD_DATE,DELETE_DATE , DatesDispatchTypes, GET_ALL_DATES,} from './DatesTypes';
-import {GetDates, SaveDate, addNewDate,deleteDate,deleteDateByID, getAllDates,  } from './DatesActions';
+import {addNewDate,deleteDate,deleteDateByID,getAllDates,getDates, saveDate } from './DatesActions';
 import thunk ,{ThunkDispatch} from 'redux-thunk';
 import { Citas } from '../../../../feature/Citas/interfaces/index';
 import MockAdapter from 'axios-mock-adapter';
@@ -7,11 +7,8 @@ import { axiosIntance } from '../../../config/AxiosConfig';
 import createMockStore from 'redux-mock-store';
 
 const mock = new MockAdapter(axiosIntance);
-
-
-
+const status:number=200;
 type DispatchExts = ThunkDispatch<State, void, DatesDispatchTypes>;
-
 const middlewares = [thunk]; // add your middlewares like `redux-thunk`
 const mockStore = createMockStore<State,DispatchExts>(middlewares);
 
@@ -59,8 +56,8 @@ describe('testing action dates', () => {
     });
 
     it('testing async action saveDate', async() => {
-       mock.onPost('/dates').reply(200, DateWithID);
-       await store.dispatch( SaveDate(DateWithID));
+       mock.onPost('/dates').reply(status, DateWithID);
+       await store.dispatch( saveDate(DateWithID));
        const action = store.getActions();
        expect(action[0]).toEqual({
            type:ADD_DATE,
@@ -82,8 +79,8 @@ describe('testing action dates', () => {
     });
 
     it('testing async action getAllDates', async() => {
-        mock.onGet('/dates').reply(200, [DateWithID]);
-        await store.dispatch( GetDates());
+        mock.onGet('/dates').reply(status, [DateWithID]);
+        await store.dispatch( getDates());
         const action = store.getActions();
         expect(action[0]).toEqual({
             type:GET_ALL_DATES,
@@ -99,7 +96,7 @@ describe('testing action dates', () => {
          });
      });
      it('testing async action deleteDateByID', async() => {
-        mock.onDelete('/dates/123456').reply(200);
+        mock.onDelete('/dates/123456').reply(status);
         await store.dispatch( deleteDateByID(DateWithID.id));
         const action = store.getActions();
         expect(action[0]).toEqual({

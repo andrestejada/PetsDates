@@ -1,11 +1,11 @@
 import { Cita ,Citas} from '../../../feature/Citas/interfaces/index';
-import { ValidateQuantityDates } from './ValidateQuantityDates';
+import { validateQuantityDates } from './ValidateQuantityDates';
 
 describe('', () => {
     
     const newDate:Cita ={
-        nombrePropietario: 'Andres',
-        nombreMascota: 'sol',
+        nombrePropietario: 'Juanito',
+        nombreMascota: 'mateo',
         tipoServicio: 'basico',
         tarifa: 10000,
         fechaHora: '2021-12-01T16:00',
@@ -24,7 +24,7 @@ describe('', () => {
               observaciones: 'pelo corto',
             },
           ];
-        const isEnougDates = ValidateQuantityDates(newDate,datesTest);
+        const isEnougDates = validateQuantityDates(newDate,datesTest);
         expect(isEnougDates).toBe(false);
     });
 
@@ -59,8 +59,8 @@ describe('', () => {
             },
             {
               id: 4,
-              nombrePropietario: 'Andres',
-              nombreMascota: 'sol',
+              nombrePropietario: 'Luis',
+              nombreMascota: 'danna',
               tipoServicio: 'basico',
               tarifa: 10000,
               fechaHora: '2021-12-01T16:00',
@@ -68,15 +68,15 @@ describe('', () => {
             },
             {
               id: 5,
-              nombrePropietario: 'Andres',
-              nombreMascota: 'sol',
+              nombrePropietario: 'Angela',
+              nombreMascota: 'coco',
               tipoServicio: 'basico',
               tarifa: 10000,
               fechaHora: '2021-12-01T16:00',
               observaciones: 'pelo corto',
             },
           ];
-        const isEnougDates = ValidateQuantityDates(newDate,datesTest);
+        const isEnougDates = validateQuantityDates(newDate,datesTest);
         expect(isEnougDates).toBe(true);
     });
 });

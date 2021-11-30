@@ -1,6 +1,6 @@
 import { ChangeEvent,  useState } from 'react';
 
-export const UseForm = <T extends Object>( initialState:T ) => {
+export const useForm = <T extends Object>( initialState:T ) => {
     
     const [values, setValues] = useState(initialState);
 
