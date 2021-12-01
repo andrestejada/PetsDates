@@ -23,7 +23,9 @@ const store = mockStore(initialState);
 describe('testting in te component <CitasMainPage/>', () => {
     const componentWrapper = mount(
             <Provider store={store} >
-                <CitasMainPage history={undefined} location={undefined} match={undefined} />
+              
+                <CitasMainPage/>
+                
             </Provider>
     );
     it('should be fint the principal title', () => {
