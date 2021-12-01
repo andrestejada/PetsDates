@@ -9,6 +9,5 @@ const CitasMainPage: React.FC<RouteComponentProps> = () => (
   </Layout>
 );
 
-CitasMainPage.displayName = 'HomeMainPage';
 
 export default CitasMainPage;

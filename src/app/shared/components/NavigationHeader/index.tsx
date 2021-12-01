@@ -5,14 +5,14 @@ import { NavLink } from 'react-router-dom';
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-
+const spacing =2;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing(spacing),
     },
     title: {
       flexGrow: 1,

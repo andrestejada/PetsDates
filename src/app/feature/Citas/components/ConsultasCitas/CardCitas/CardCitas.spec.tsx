@@ -12,48 +12,47 @@ const initialState = {};
 const store = mockStore(initialState);
 store.dispatch = jest.fn();
 
-jest.mock('../../../../../core/redux/acciones/Dates/DatesActions',()=>({
-    deleteDateByID:jest.fn()
+jest.mock('../../../../../core/redux/acciones/Dates/DatesActions', () => ({
+  deleteDateByID: jest.fn(),
 }));
 
 describe('testing <CardCitas/> component', () => {
-    let compponentWrappe = mount(
-        <Provider store={store} >
-            <CardCitas 
-                id={12345} 
-                nombrePropietario={'Andres'} 
-                nombreMascota={'Sol'} 
-                tipoServicio={'basico'} 
-                tarifa={10000} 
-                fechaHora={'2021-12-01T16:00'} 
-                observaciones={'pelo corto'}            
-            />
-        </Provider>);
+  let compponentWrappe = mount(
+    <Provider store={store}>
+      <CardCitas
+        id={12345}
+        nombrePropietario={'Andres'}
+        nombreMascota={'Sol'}
+        tipoServicio={'basico'}
+        tarifa={10000}
+        fechaHora={'2021-12-01T16:00'}
+        observaciones={'pelo corto'}
+      />
+    </Provider>
+  );
 
-        beforeEach(()=>{
-            compponentWrappe = mount(
-                <Provider store={store} >
-                    <CardCitas 
-                        id={12345} 
-                        nombrePropietario={'Andres'} 
-                        nombreMascota={'Sol'} 
-                        tipoServicio={'basico'} 
-                        tarifa={10000} 
-                        fechaHora={'2021-12-01T16:00'} 
-                        observaciones={'pelo corto'}            
-                    />
-                </Provider>);
-        });
-    
-    
-    it('should be call the deleteDateByID', () => {
-        compponentWrappe.find('button').simulate('click');
-        expect(deleteDateByID).toHaveBeenCalled();
-        
-    });
-    it('should be call the deleteDateByID with the arguments', () => {
-        compponentWrappe.find('button').simulate('click');
-        expect(deleteDateByID).toHaveBeenCalledWith(12345);
-        
-    });
+  beforeEach(() => {
+    compponentWrappe = mount(
+      <Provider store={store}>
+        <CardCitas
+          id={12345}
+          nombrePropietario={'Andres'}
+          nombreMascota={'Sol'}
+          tipoServicio={'basico'}
+          tarifa={10000}
+          fechaHora={'2021-12-01T16:00'}
+          observaciones={'pelo corto'}
+        />
+      </Provider>
+    );
+  });
+
+  it('should be call the deleteDateByID', () => {
+    compponentWrappe.find('button').simulate('click');
+    expect(deleteDateByID).toHaveBeenCalled();
+  });
+  it('should be call the deleteDateByID with the arguments', () => {
+    compponentWrappe.find('button').simulate('click');
+    expect(deleteDateByID).toHaveBeenCalledWith(12345);
+  });
 });
