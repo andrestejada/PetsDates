@@ -1,5 +1,7 @@
 export const validateWeekend=(date:string)=>{
-    const dayOfWeekeen = 6 | 0 ;
+    const saturday =6 ;
+    const sunday = 0;
+    const dayOfWeekeen = saturday | sunday ;
     const currentDate = new Date(date);    
     if(currentDate.getDay() === dayOfWeekeen){   
         return true;
