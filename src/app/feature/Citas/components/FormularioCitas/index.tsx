@@ -85,7 +85,7 @@ export const FormularioCitas = () => {
                 error &&
                 <Alert 
                     severity="error"
-                    id="alerta"
+                    data-testid="alerta"
                 >{msg}
                 </Alert>
             }
@@ -155,7 +155,7 @@ export const FormularioCitas = () => {
                 variant="contained" 
                 color="primary"
                 type='submit'
-                id='button'
+                data-testid='submit'
             >
                 Guardar Citas
             </Button>

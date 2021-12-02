@@ -5,12 +5,8 @@ import { axiosIntance } from '../../../config/AxiosConfig';
 
 export const saveDate=(date:Cita)=>{
     return async (dispatch:Dispatch<DatesDispatchTypes>)=>{
-        try {
-            const {data} = await  axiosIntance.post('/dates',date);
+        const {data} = await  axiosIntance.post('/dates',date);
             dispatch( addNewDate(data) );
-        } catch (error) {
-            alert(error);
-        }
     };
 };
 
@@ -23,12 +19,8 @@ export const addNewDate=(data:Citas):DatesDispatchTypes=>({
 
 export const getDates=()=>{
     return async (dispatch:Dispatch<DatesDispatchTypes>)=>{
-        try {
-            const {data} = await  axiosIntance.get('/dates');
+        const {data} = await  axiosIntance.get('/dates');
             dispatch( getAllDates(data) );
-        } catch (error) {
-            alert(error);
-        }
     };
 };
 
@@ -40,12 +32,8 @@ export const getAllDates=(data:Citas[]):DatesDispatchTypes=>({
 
 export const deleteDateByID=(id:number)=>{
     return async(dispatch:Dispatch<DatesDispatchTypes>)=>{
-        try {
-            await axiosIntance.delete(`/dates/${id}`);
-            dispatch(deleteDate(id));
-        } catch (error) {
-            alert(error);
-        }
+        await axiosIntance.delete(`/dates/${id}`);
+        dispatch(deleteDate(id));
     };
 };
 

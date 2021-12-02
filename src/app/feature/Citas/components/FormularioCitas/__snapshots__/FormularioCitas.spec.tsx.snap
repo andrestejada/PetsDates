@@ -328,8 +328,8 @@ exports[`Prueba unitarias formulario de citas Comprobar que el componente se ren
   </div>
   <button
     className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+    data-testid="submit"
     disabled={false}
-    id="button"
     onBlur={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}

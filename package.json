@@ -31,7 +31,8 @@
     "test:coverage": "react-scripts test --watchAll=false --coverage",
     "lint": "eslint --fix src/**/*.{ts,tsx}",
     "serve": "json-server --watch db.json --port 3001",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
