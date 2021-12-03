@@ -6,7 +6,7 @@ exports[`testing <ConsultasCitas/> Comprobar que el componente se renderize corr
 >
   <div
     className="MuiPaper-root MuiAlert-root MuiAlert-standardInfo MuiPaper-elevation0"
-    data-testid="alert"
+    data-testid="empty-dates"
     role="alert"
   >
     <div

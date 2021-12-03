@@ -9,6 +9,6 @@ describe('testing <SinCitas/> component', () => {
         <SinCitas/>
     );
     it('should ', () => {
-        expect(compponentWrappe.find('[data-testid="alert"]').exists()).toBe(true);
+        expect(compponentWrappe.find('[data-testid="empty-dates"]').exists()).toBe(true);
     });
 });

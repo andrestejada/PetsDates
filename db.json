@@ -34,7 +34,7 @@
       "tarifa": 30000,
       "fechaHora": "2021-11-26T12:00",
       "observaciones": "uñas pintadas",
-      "id": 25
+      "id": 4
     },
     {
       "nombrePropietario": "Andres",
@@ -43,7 +43,8 @@
       "tarifa": 20000,
       "fechaHora": "2021-11-26T15:06",
       "observaciones": "hg",
-      "id": 27
+      "id": 5
     }
+    
   ]
 }

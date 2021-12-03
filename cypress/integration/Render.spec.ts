@@ -27,6 +27,6 @@ describe('My First Test', () => {
 
     it('funciton ', () => {
       cy.get('[href="/citas"]').click();
-      cy.CrearFormulario(this.date);      
+      cy.FillForm(this.date);      
     });
   });

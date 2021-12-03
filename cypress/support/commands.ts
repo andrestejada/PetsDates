@@ -23,7 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('CrearFormulario',(data)=>{
+Cypress.Commands.add('FillForm',(data)=>{
     cy.get('[name="nombrePropietario"]').type(data.nombrePropietario);
     cy.get('[name="nombreMascota"]').type(data.nombreMascota);
     cy.get('[name="tipoServicio"]').select(data.tipoServicio);
