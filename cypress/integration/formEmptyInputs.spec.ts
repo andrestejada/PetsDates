@@ -2,7 +2,8 @@ describe('testing in the citas page about form validation', () => {
     beforeEach(()=>{
         cy.visit('/',);
         cy.get('[href="/citas"]').click();
-        cy.fixture('date.json').then((date)=>this.date=date);       
+        cy.fixture('newDate.json').then((date)=>this.date=date);     
+        cy.intercept('GET', '/dates', { fixture: 'anyDate.json' });  
       });
     it('verify error mesage when the form is empty', () => {
         cy.get('[data-testid="submit"]').click(); 

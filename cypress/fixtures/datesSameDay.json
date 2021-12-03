@@ -1,0 +1,39 @@
+[
+    {
+      "nombrePropietario": "Andres",
+      "nombreMascota": "Sol",
+      "tipoServicio": "premium",
+      "tarifa": 30000,
+      "fechaHora": "2021-12-09T08:00",
+      "observaciones": "bien corto",
+      "id": 1
+    },
+    {
+      "nombrePropietario": "Luisa",
+      "nombreMascota": "Dana",
+      "tipoServicio": "premium",
+      "tarifa": 30000,
+      "fechaHora": "2021-12-09T18:00",
+      "observaciones": "orejas limpias",
+      "id": 2
+    },
+    {
+      "nombrePropietario": "Luis",
+      "nombreMascota": "coco",
+      "tipoServicio": "premium",
+      "tarifa": 30000,
+      "fechaHora": "2021-12-09T10:00",
+      "observaciones": "moño rojo",
+      "id": 3
+    },
+    {
+      "nombrePropietario": "Angela",
+      "nombreMascota": "Luna",
+      "tipoServicio": "premium",
+      "tarifa": 30000,
+      "fechaHora": "2021-12-09T12:00",
+      "observaciones": "uñas pintadas",
+      "id": 4
+    }
+    
+  ]
