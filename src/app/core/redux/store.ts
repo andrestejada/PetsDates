@@ -1,3 +1,4 @@
+// Stryker disable all
 import { applyMiddleware, compose, createStore } from 'redux';
 import rootReducer from './reductores';
 import thunk from 'redux-thunk';

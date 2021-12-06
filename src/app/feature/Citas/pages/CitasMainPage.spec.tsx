@@ -1,5 +1,6 @@
 import { Citas } from '../interfaces/index';
 import CitasMainPage from './Main';
+import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import React from 'react';
 import createMockStore from 'redux-mock-store';
@@ -19,13 +20,17 @@ interface State {
     },
   };
 const store = mockStore(initialState);
-
+const routeComponentPropsMock = {
+  history: {} as any,
+  location: {} as any,
+  match: {} as any,
+};
 describe('testting in te component <CitasMainPage/>', () => {
     const componentWrapper = mount(
             <Provider store={store} >
-              
-                <CitasMainPage/>
-                
+              <MemoryRouter>
+                <CitasMainPage {...routeComponentPropsMock}/>
+              </MemoryRouter>                
             </Provider>
     );
     it('should be fint the principal title', () => {

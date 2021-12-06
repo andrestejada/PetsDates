@@ -13,5 +13,6 @@
   "jest": {
     "projectType": "create-react-app"
   },
+  "ignorePatterns": ["store.ts","**/errors"], 
   "tempDirName": "stryker-tmp"
 }

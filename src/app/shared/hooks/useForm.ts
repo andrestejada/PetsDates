@@ -1,4 +1,5 @@
 import { ChangeEvent,  useState } from 'react';
+import { calcRate } from '../utils/calcRate';
 
 export const useForm = <T extends Object>( initialState:T ) => {
     
@@ -8,15 +9,28 @@ export const useForm = <T extends Object>( initialState:T ) => {
         setValues( initialState );
     };
 
-    const handleInputChange = (e:ChangeEvent<HTMLInputElement |HTMLSelectElement |HTMLTextAreaElement |{ name?: string; value: unknown }>) => {   
-        const name = e.target.name as keyof typeof values;
+    interface OnChange{
+        target:{
+            value:any
+            name?:any
+        }
+    }
+    const handleInputChange = ({target}:OnChange) => {   
+        //const name = target.name as keyof typeof values;
         setValues({
             ...values,
-            [name ]: e.target.value
+            [target.name ]: target.value
         });      
      
     };
 
-    return [ values, handleInputChange, reset ,setValues]as const;
+    const changeRate =(value:string)=>{
+        setValues({
+            ...values,
+            tarifa:calcRate(value)
+        });
+    };
+
+    return [ values, handleInputChange, reset ,changeRate]as const;
 
 };

@@ -5,7 +5,6 @@ import Alert from '@material-ui/lab/Alert';
 import { Cita } from '../../interfaces/index';
 import { FormContainer } from './styles';
 import { RootState } from '../../../../core/redux/reductores/index';
-import { calcRate } from '../../../../shared/utils/calcRate';
 import { saveDate } from '../../../../core/redux/acciones/Dates/DatesActions';
 import { useForm } from '../../../../shared/hooks/useForm';
 import { validateEmptyInputs } from '../../../../shared/utils/formValidation/ValidarCamposVacios';
@@ -28,7 +27,7 @@ export const FormularioCitas = () => {
     };
     const [error, setError] = useState(false);
     const [msg, setMsg] = useState('');
-    const [formValues,handleOnChange,reset,setValues] = useForm<Cita>(initialValues);
+    const [formValues,handleOnChange,reset,changeRate] = useForm<Cita>(initialValues);
     const {
         nombrePropietario,
         nombreMascota,
@@ -74,7 +73,7 @@ export const FormularioCitas = () => {
         reset();
     };
     useEffect(() => {
-        setValues({...formValues,tarifa:calcRate(tipoServicio)});
+        changeRate(tipoServicio);
         // eslint-disable-next-line
     }, [tipoServicio]);
     return (
