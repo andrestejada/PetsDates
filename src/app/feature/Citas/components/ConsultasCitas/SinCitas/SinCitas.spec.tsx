@@ -8,7 +8,9 @@ describe('testing <SinCitas/> component', () => {
     const compponentWrappe = mount(
         <SinCitas/>
     );
-    it('should ', () => {
+    it('should be render correctly ', () => {
+        expect(compponentWrappe.contains('No hay citas aun, empieza creando una')).toBe(true);
         expect(compponentWrappe.find('[data-testid="empty-dates"]').exists()).toBe(true);
+        expect(compponentWrappe).toMatchSnapshot();
     });
 });

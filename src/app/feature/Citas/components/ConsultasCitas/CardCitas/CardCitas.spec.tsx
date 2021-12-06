@@ -55,4 +55,8 @@ describe('testing <CardCitas/> component', () => {
     compponentWrappe.find('button').simulate('click');
     expect(deleteDateByID).toHaveBeenCalledWith(12345);
   });
+
+  it('shoul be render correctly', () => {
+    expect(compponentWrappe).toMatchSnapshot();
+  });
 });
