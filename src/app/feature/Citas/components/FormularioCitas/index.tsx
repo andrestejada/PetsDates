@@ -1,21 +1,14 @@
 import { Button, FormControl, InputLabel, Select, TextField } from '@material-ui/core';
 import React, {  FormEvent, useEffect, useState } from 'react';
-import {  useDispatch, useSelector } from 'react-redux';
 import Alert from '@material-ui/lab/Alert';
 import { Cita } from '../../interfaces/index';
 import { FormContainer } from './styles';
 import { RootState } from '../../../../core/redux/reductores/index';
-import { saveDate } from '../../../../core/redux/acciones/Dates/DatesActions';
 import { useForm } from '../../../../shared/hooks/useForm';
-import { validateEmptyInputs } from '../../../../shared/utils/formValidation/ValidarCamposVacios';
-import { validateQuantityDates } from '../../../../shared/utils/formValidation/ValidateQuantityDates';
-import { validateSameHours } from '../../../../shared/utils/formValidation/ValidateSameHours';
-import { validateWeekend } from '../../../../shared/utils/validateWeekend';
-
-
+import { useSelector } from 'react-redux';
+import { useSubmit } from 'app/shared/hooks/useSubmit';
 
 export const FormularioCitas = () => {
-    const dispatch = useDispatch();
     const allDates = useSelector((state:RootState) => state.dates.allDates);
     const initialValues:Cita={
         nombrePropietario:'',
@@ -25,9 +18,13 @@ export const FormularioCitas = () => {
         fechaHora:'',
         observaciones:'',
     };
-    const [error, setError] = useState(false);
-    const [msg, setMsg] = useState('');
+
     const [formValues,handleOnChange,reset,changeRate] = useForm<Cita>(initialValues);
+    const {
+        error,
+        handleSubmit,
+        msg,
+    } = useSubmit({formValues,allDates,reset});
     const {
         nombrePropietario,
         nombreMascota,
@@ -35,43 +32,8 @@ export const FormularioCitas = () => {
         tarifa,
         fechaHora,
         observaciones,
-    }=formValues;
-    const handleSubmit=(e:FormEvent<HTMLFormElement>)=>{
-        e.preventDefault();
-        //validate empty fields
-        const isEmptyFields = validateEmptyInputs(formValues);
-         if(isEmptyFields){
-            setError(true);
-            setMsg('Todos los campos son obligatorios');
-            return;
-        }
-
-        //validate if is weekend
-        const isWeekend = validateWeekend(fechaHora);
-        if(isWeekend){
-            setError(true);
-            setMsg('Recuerda que solo puedes agregar citas de lunes a viernes');
-            return; 
-        }
-        //validate max quantity
-        const isEnoughDates = validateQuantityDates(formValues,allDates);
-        if(isEnoughDates){
-            setError(true);
-            setMsg('Solo puedes agregar 5 citas que corresponda al mismo dia');
-            return; 
-        }
-
-        const isBetweenDate = validateSameHours(formValues,allDates);
-        if(isBetweenDate){
-            setError(true);
-            setMsg('No puedes agregar 2 citas a la misma hora,recuerda que cada cita tiene una duración de 2 horas.');
-            return; 
-        }
-        //save in the db        
-        setError(false);
-        dispatch(saveDate(formValues));
-        reset();
-    };
+    }=formValues;    
+     
     useEffect(() => {
         changeRate(tipoServicio);
         // eslint-disable-next-line

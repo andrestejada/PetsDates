@@ -13,6 +13,6 @@
   "jest": {
     "projectType": "create-react-app"
   },
-  "ignorePatterns": ["store.ts","**/errors"], 
+  "ignorePatterns": ["app/core/redux/store.ts","**/errors"], 
   "tempDirName": "stryker-tmp"
 }
