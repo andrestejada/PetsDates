@@ -13,13 +13,17 @@ interface Props {
     reset: () => void
 }
 
-export const useSubmit=({formValues,allDates,reset}:Props)=>{
+export const useSubmit=(props:Props)=>{
+    const {formValues,allDates,reset} = props;
     const dispatch = useDispatch();
     const [error, setError] = useState(false);
     const [msg, setMsg] = useState('');
     const {fechaHora}=formValues;
 
-    const handleSubmit=(e:FormEvent<HTMLFormElement>)=>{
+    interface Props{
+        preventDefault:()=>void;
+    }
+    const handleSubmit=(e:Props)=>{
         e.preventDefault();
         //validate empty fields
         const isEmptyFields = validateEmptyInputs(formValues);

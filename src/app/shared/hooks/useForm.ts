@@ -11,7 +11,7 @@ export const useForm = <T extends Object>( initialState:T ) => {
 
     interface OnChange{
         target:{
-            name?: string | number | any ;
+            name?: string | any;
             value: unknown;
         }
     }
