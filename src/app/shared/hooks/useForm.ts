@@ -1,5 +1,5 @@
-import { ChangeEvent,  useState } from 'react';
 import { calcRate } from '../utils/calcRate';
+import {  useState } from 'react';
 
 export const useForm = <T extends Object>( initialState:T ) => {
     
@@ -11,8 +11,8 @@ export const useForm = <T extends Object>( initialState:T ) => {
 
     interface OnChange{
         target:{
-            value:any
-            name?:any
+            name?: string | number | any ;
+            value: unknown;
         }
     }
     const handleInputChange = ({target}:OnChange) => {   
