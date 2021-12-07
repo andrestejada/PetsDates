@@ -1,7 +1,7 @@
 import {Cita,Citas} from 'app/feature/Citas/interfaces';
-import { FormEvent, useState } from 'react';
 import { saveDate } from 'app/core/redux/acciones/Dates/DatesActions';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { validateEmptyInputs } from '../utils/formValidation/ValidarCamposVacios';
 import { validateQuantityDates } from '../utils/formValidation/ValidateQuantityDates';
 import { validateSameHours } from '../utils/formValidation/ValidateSameHours';
@@ -20,10 +20,10 @@ export const useSubmit=(props:Props)=>{
     const [msg, setMsg] = useState('');
     const {fechaHora}=formValues;
 
-    interface Props{
+    interface FormEvent{
         preventDefault:()=>void;
     }
-    const handleSubmit=(e:Props)=>{
+    const handleSubmit=(e:FormEvent)=>{
         e.preventDefault();
         //validate empty fields
         const isEmptyFields = validateEmptyInputs(formValues);

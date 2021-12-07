@@ -27,10 +27,8 @@ const routeComponentPropsMock = {
 };
 describe('testting in te component <CitasMainPage/>', () => {
     const componentWrapper = mount(
-            <Provider store={store} >
-              <MemoryRouter>
-                <CitasMainPage {...routeComponentPropsMock}/>
-              </MemoryRouter>                
+            <Provider store={store} >              
+                <CitasMainPage {...routeComponentPropsMock}/>                 
             </Provider>
     );
     it('should be fint the principal title', () => {
