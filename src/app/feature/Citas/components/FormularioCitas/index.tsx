@@ -1,11 +1,5 @@
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  Select,
-  TextField,
-} from '@material-ui/core';
-import React, {  useEffect } from 'react';
+import {Button,FormControl, InputLabel, Select,TextField,} from '@material-ui/core';
+import React, { useEffect } from 'react';
 import Alert from '@material-ui/lab/Alert';
 import { Cita } from '../../interfaces/index';
 import { FormContainer } from './styles';
@@ -24,14 +18,8 @@ export const FormularioCitas = () => {
     fechaHora: '',
     observaciones: '',
   };
-
-  const [formValues, handleOnChange, reset, changeRate] =
-    useForm<Cita>(initialValues);
-  const { error, handleSubmit, msg } = useSubmit({
-    formValues,
-    allDates,
-    reset,
-  });
+  const [formValues, handleOnChange, reset, changeRate] = useForm<Cita>(initialValues);
+  const { error, handleSubmit, msg } = useSubmit({formValues,allDates,reset,});
   const {
     nombrePropietario,
     nombreMascota,
@@ -86,9 +74,7 @@ export const FormularioCitas = () => {
         </Select>
       </FormControl>
       <TextField
-        InputProps={{
-          readOnly: true,
-        }}
+        InputProps={{readOnly: true,}}
         id="outlined-required"
         label="Tarifa"
         variant="outlined"
@@ -100,9 +86,7 @@ export const FormularioCitas = () => {
         id="datetime-local"
         label="Fecha y hora de la cita"
         type="datetime-local"
-        InputLabelProps={{
-          shrink: true,
-        }}
+        InputLabelProps={{shrink: true,}}
         name="fechaHora"
         onChange={handleOnChange}
         value={fechaHora}

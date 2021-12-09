@@ -54,5 +54,8 @@ describe('test dates reducer', () => {
         const stateWithoutDate = dateReducer(initialStateDelete,actionDeleteDate);
         expect(stateWithoutDate.allDates.length).toBe(0);
         expect(stateWithoutDate).toEqual({...initialStateDelete,allDates:[]});
+        expect(stateWithoutDate).toEqual({ allDates: [] });
+        expect(stateWithoutDate.allDates).toEqual([]);
+        expect(stateWithoutDate.allDates).not.toBe(undefined);
     });
 });

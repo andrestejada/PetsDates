@@ -8,6 +8,4 @@ const HomeMainPage: React.FC<RouteComponentProps> = () => (
   </Layout>
 );
 
-HomeMainPage.displayName = 'HomeMainPage';
-
 export default HomeMainPage;

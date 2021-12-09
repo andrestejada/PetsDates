@@ -15,11 +15,6 @@ const initialState={
     }
 };
 let store = mockStore(initialState);
-
-jest.mock('../../../../shared/utils/formValidation/ValidarCamposVacios.ts',()=>({
-    validateEmptyInputs: jest.fn(),
-}));
-
 describe('Prueba unitarias formulario de citas', () => {
     let componentWrapper = mount(
         <Provider store={store} >
@@ -43,7 +38,8 @@ describe('Prueba unitarias formulario de citas', () => {
 
     it('probar el onsubmit del formulario', () => {
         componentWrapper.find('form').simulate('submit',{preventDefault(){}});
-        expect(validateEmptyInputs).toHaveBeenCalled();
+        const expectText='Todos los campos son obligatorios';
+        expect(componentWrapper.find('[data-testid="alerta"]').at(0).contains(expectText)).toBe(true);
     });    
    
 });

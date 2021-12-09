@@ -19,7 +19,7 @@ export const addNewDate=(data:Citas):DatesDispatchTypes=>({
 
 export const getDates=()=>{
     return async (dispatch:Dispatch<DatesDispatchTypes>)=>{
-        const {data} = await  axiosIntance.get('/dates');
+            const {data} = await  axiosIntance.get('/dates');
             dispatch( getAllDates(data) );
     };
 };

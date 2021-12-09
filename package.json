@@ -32,7 +32,8 @@
     "lint": "eslint --fix src/**/*.{ts,tsx}",
     "serve": "json-server --watch db.json --port 3001",
     "cypress:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "test:mutation": "stryker run"
   },
   "eslintConfig": {
     "extends": "react-app"
