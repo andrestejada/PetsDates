@@ -22,6 +22,8 @@
 //
 //
 // -- This will overwrite an existing command --
+
+
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('FillForm',(data)=>{
     cy.get('[name="nombrePropietario"]').type(data.nombrePropietario);
@@ -30,3 +32,4 @@ Cypress.Commands.add('FillForm',(data)=>{
     cy.get('[name="fechaHora"]').type(data.fechaHora);
     cy.get('[name="observaciones"]').type(data.observaciones); 
 });
+

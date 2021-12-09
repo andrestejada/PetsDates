@@ -27,7 +27,7 @@ declare global {
          * @example cy.dataCy('greeting')
          */
         dataCy(value: string): Chainable<Element>
-        FillForm(value: Cita): void
+        FillForm(value: Cita): void        
       }
     } 
   }
